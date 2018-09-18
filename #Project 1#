@@ -1,0 +1,37 @@
+1a - The number of flights that occured on each day of the year can be found
+using the following line
+
+cd /depot/statclass/data/dataexpo2009
+sort -2005csv | cut -d. -f1-3 | sort | uniq -c
+
+1b - the most flights occured on August 5th of that year. We can find this by adding the following to the above line. 
+
+| sort -n | tail -n1 
+
+This line is returned to us:
+
+21041 2005,8,5
+
+2 - The flight brand is the 9th line of the csv file so we can sort that using this line
+
+sort 2005.csv | cut -d, -f9 | sort | uniq -c 
+
+We can see the number of flights by each airline so I just found United (UA) and Delta (DL) and compared them. Delta had more flights (658302) than United (485918).
+
+3 - We have to change the directory and then sort the number of passengers that is just in the fourth column using this line and then it spits out this table sort of thing that tells how many trips have each number of passengers
+
+cd /depot/statclass/data/taxi2018
+sort yellow_tripdata_2017-06.csv | cut -d, -f4 | sort | uniq -c
+
+The table:
+
+548 0 
+6933189 1
+1385066 2
+406162 3
+187979 4
+455753 5
+288220 6
+26 7
+30 8
+20 9
