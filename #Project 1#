@@ -4,7 +4,7 @@
 #using the following line which goes through the 2005csv file, only takes the dcolumn and part of the f column and sorts it.
 
 cd /depot/statclass/data/dataexpo2009
-sort -2005csv | cut -d. -f1-3 | sort | uniq -c
+sort -2005.csv | cut -d, -f1-3 | sort | uniq -c
 
 #1b.  find the day of the year on which the most flights occur.
 #1b - the most flights occured on August 5th of that year. We can find this by adding the following to the above line. 
