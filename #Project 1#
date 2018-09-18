@@ -1,24 +1,31 @@
-1a - The number of flights that occured on each day of the year can be found
-using the following line
+#1a. In the year 2005, find: the number of flights that occurred, on every day of the year, and- 
+
+#The number of flights that occured on each day of the year can be found
+#using the following line which goes through the 2005csv file, only takes the dcolumn and part of the f column and sorts it.
 
 cd /depot/statclass/data/dataexpo2009
 sort -2005csv | cut -d. -f1-3 | sort | uniq -c
 
-1b - the most flights occured on August 5th of that year. We can find this by adding the following to the above line. 
+#1b.  find the day of the year on which the most flights occur.
+#1b - the most flights occured on August 5th of that year. We can find this by adding the following to the above line. 
 
 | sort -n | tail -n1 
 
-This line is returned to us:
+#This line is returned to us:
 
 21041 2005,8,5
 
-2 - The flight brand is the 9th line of the csv file so we can sort that using this line
+#2.  Again considering the year 2005, did United or Delta have more flights?
+
+#2 - The flight brand is the 9th line of the csv file so we can sort that using this line
 
 sort 2005.csv | cut -d, -f9 | sort | uniq -c 
 
-We can see the number of flights by each airline so I just found United (UA) and Delta (DL) and compared them. Delta had more flights (658302) than United (485918).
+#We can see the number of flights by each airline so I just found United (UA) and Delta (DL) and compared them. Delta had more flights (658302) than United (485918).
 
-3 - We have to change the directory and then sort the number of passengers that is just in the fourth column using this line and then it spits out this table sort of thing that tells how many trips have each number of passengers
+#3. What is the distribution of the number of passengers in the taxi cab rides?  In other words, make a list of the number of rides that have 1 passenger; that have 2 passengers; etc.
+
+#3 - We have to change the directory and then sort the number of passengers that is just in the fourth column using this line and then it spits out this table sort of thing that tells how many trips have each number of passengers
 
 cd /depot/statclass/data/taxi2018
 sort yellow_tripdata_2017-06.csv | cut -d, -f4 | sort | uniq -c
